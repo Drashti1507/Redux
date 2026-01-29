@@ -35,9 +35,17 @@ const calculatorslice = createSlice ({
                 state.value = state.value.slice(0,-1);
             }
         },
+
+        percentage : (state) => {
+            try{
+                state.value = String(eval(state.value) / 100);
+            } catch {
+                state.value = "Error"
+            }
+        }
     },
 });
 
 
-export const { addDigit , clear , calculate , deletedigit } = calculatorslice.actions;
+export const { addDigit , clear , calculate , deletedigit , percentage } = calculatorslice.actions;
 export default calculatorslice.reducer;
